@@ -6,7 +6,7 @@ sv = Service('dailynews', enable_on_default=False, help_='''每日早报
 [@bot 今日早报] （测试用）手动发送一份早报''')
 
 
-@sv.scheduled_job('cron', hour='8', minute='30')
+@sv.scheduled_job('cron', hour='8', minute='40', jitter=50)
 async def autonews():
     try:
         info = await aiorequests.get('http://dwz.2xb.cn/zaob')
